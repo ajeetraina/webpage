@@ -18,8 +18,11 @@ node {
         /* Ideally, we would run a test framework against our image.
          * Just an example */
 
-        app.inside {
-            sh 'echo "Tests passed"'
+      /* app.inside { */
+        /*  #  sh 'echo "Tests passed"' */
+       /* stage('Test') { */
+	 steps {
+	    runtpJob jobId: 'VDwj_PAk20SkRaNTOxf9Og', projectId: '6m1LeGuoB0qPgwS05Ew4yA', waitJobFinishSeconds: 1800
         }
     }
 
