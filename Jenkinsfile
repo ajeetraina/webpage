@@ -23,6 +23,11 @@ node {
         }
     }
 
+    stage('Run image') {
+        /*Run an image to start services*/
+        docker.image("cankush625/webpage").run('-p 80:80')
+    }
+
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
