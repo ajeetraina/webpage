@@ -21,7 +21,6 @@ node {
       /* app.inside { */
         /*  #  sh 'echo "Tests passed"' */
        /* stage('Test') { */
-	 steps {
 	    tpJobRun agentId: '0OvZAzBaC0u4YUkqezrACg', jobId: 'VDwj_PAk20SkRaNTOxf9Og', projectId: '6m1LeGuoB0qPgwS05Ew4yA', waitJobFinishSeconds: 1800
         }
     }
