@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("cankush625/webpage")
+        app = docker.build("ajeetraina/webpage")
     }
 
     stage('Test image') {
@@ -24,8 +24,8 @@ node {
     }
 
     stage('Run image') {
-        /*Run an image to start services*/
-        docker.image("cankush625/webpage").run('-p 80:80')
+        /* Run an image to start services */
+        docker.image("ajeetraina/webpage").run('-p 80:80')
     }
 
     stage('Push image') {
