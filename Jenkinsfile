@@ -18,11 +18,12 @@ node {
         /* Ideally, we would run a test framework against our image.
          * Just an example */
 
-      /* app.inside { */
-        /*  #  sh 'echo "Tests passed"' */
+      
        /* stage('Test') { */
-	    tpJobRun agentId: '0OvZAzBaC0u4YUkqezrACg', jobId: 'VDwj_PAk20SkRaNTOxf9Og', projectId: '6m1LeGuoB0qPgwS05Ew4yA', waitJobFinishSeconds: 1800
-        }
+       tpJobRun agentId: '0OvZAzBaC0u4YUkqezrACg', jobId: 'VDwj_PAk20SkRaNTOxf9Og', projectId: '6m1LeGuoB0qPgwS05Ew4yA', waitJobFinishSeconds: 1800
+       app.inside { 
+       sh 'echo "Tests passed"' 
+       }
     }
 
     stage('Push image') {
