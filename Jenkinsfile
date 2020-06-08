@@ -38,4 +38,10 @@ node {
             app.push("latest")
         }
     }
+
+    post {
+        success {
+            echo "All stages are successfully build!"
+        }
+    }
 }
