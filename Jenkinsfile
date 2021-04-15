@@ -23,6 +23,11 @@ node {
         }
     }
 
+    stage('Run image') {
+        /* Run an image to start services */
+        docker.image("ajeetraina/webpage").run('-p 80:80')
+    }
+
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
@@ -31,6 +36,12 @@ node {
         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
+        }
+    }
+
+    post {
+        success {
+            echo "All stages are successfully build!"
         }
     }
 }
