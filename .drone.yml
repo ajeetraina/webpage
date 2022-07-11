@@ -1,0 +1,26 @@
+kind: pipeline
+type: docker
+name: default
+platform:
+  os: darwin
+  arch: arm64
+steps:
+- name: build image
+  image: plugins/docker
+  pull: if-not-present
+  settings:
+    repo: ajeetraina/webpage
+    tags: latest
+    dry_run: true
+- name: test image
+  image: busybox
+  pull: if-not-present
+  commands:
+    - echo "Test Passed"
+- name: push image
+  image: plugins/docker
+  pull: if-not-present
+  settings:
+    repo: ajeetraina/webpage
+    tags: latest
+    insecure: true
